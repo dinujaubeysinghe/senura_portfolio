@@ -75,7 +75,7 @@ export default function About() {
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={0}
-            className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-[#8b3dff] font-bold text-xs tracking-[0.4em] uppercase mb-4"
           >
             The Story
           </motion.p>
@@ -83,14 +83,14 @@ export default function About() {
             variants={fadeUp} initial="hidden" animate="visible" custom={1}
             className="font-display text-[clamp(3.5rem,10vw,8rem)] leading-none tracking-wider text-slate-900 mb-6"
           >
-            ABOUT <span className="tiffany-gradient">YUKI</span>
+            ABOUT <span className="tiffany-gradient">Diaz</span>
           </motion.h1>
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-slate-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
+            className="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            Pannala Gedara Yukthi Prabudika Navaratne — professionally known as YukiBeatz.
-            A Sri Lankan music producer, singer, and artist redefining the boundaries of sound.
+            Patti Vidanalage Senura Wageesha Dias — professionally known as Wageesha Diaz.
+            A Sri Lankan compere and announcer known for creating powerful audience connections through voice, presence, and performance.
           </motion.p>
         </div>
       </section>
@@ -107,8 +107,8 @@ export default function About() {
             <div className="relative w-72 mx-auto">
               <div className="aspect-square rounded-2xl overflow-hidden glass glow flex items-center justify-center border border-tiffany-500/15">
                 <div className="text-center">
-                  <p className="font-display text-8xl tiffany-gradient">YK</p>
-                  <p className="text-slate-400 text-xs tracking-widest mt-2 uppercase">YukiBeatz</p>
+                  <p className="font-display text-8xl tiffany-gradient">WD</p>
+                  <p className="text-slate-400 text-xs tracking-widest mt-2 uppercase">Wageesha Diaz</p>
                 </div>
               </div>
               <motion.div
@@ -127,30 +127,26 @@ export default function About() {
             className="space-y-6"
           >
             <div>
-              <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-3">Background</p>
+              <p className="text-[#8b3dff] text-xs font-bold tracking-[0.4em] uppercase mb-3">Background</p>
               <h2 className="font-display text-4xl text-slate-900 tracking-wider mb-4">
-                FROM KANDY<br />TO THE WORLD
+                BEHIND THE MIC<br />BEYOND THE CROWD
               </h2>
             </div>
             <p className="text-slate-500 leading-relaxed">
-              Growing up in the lush hills of Kandy, Yuki's first artistic journey began through traditional
-              Kandyan dance — an ancient Sri Lankan art form that would forever shape his sense of rhythm
-              and movement. This deep-rooted cultural foundation became the bedrock upon which he built
-              an entirely modern sonic identity.
+             Born in the coastal town of Bentota, my passion for communication and stage performance began during my school years. My journey started as a young announcer, confidently hosting school events and developing a strong connection with audiences through my voice and stage presence.
             </p>
             <p className="text-slate-500 leading-relaxed">
-              Relocating to Colombo to pursue music full-time, Yuki began fusing the pulse of hip-hop,
-              the warmth of R&B, the intensity of trap, and the textures of electronic music with elements
-              of his heritage. The result: a sound recognized across 161 countries.
+             During my time at Kalutara Vidyalaya, I proudly served as the Debate Captain for four consecutive years, which helped me strengthen my leadership, confidence, and public speaking skills. I also worked as the Radio Director of the school media club, where I further explored my creativity and passion for broadcasting.
             </p>
             <p className="text-slate-500 leading-relaxed">
-              Beyond performing, Yuki serves as a Visiting Lecturer at Pearlbay Institute — Sri Lanka's
-              largest audio engineering education institution — where he mentors 48 students in the art
-              of electronic music production.
+              Driven by my love for media and professional announcing, I later completed my training at Athula Ransirilal's Lanka Television and Radio Academy (LTRA). Today, I am a TVEC-approved and registered announcer, actively working in wedding compering, cricket commentary, brand promotions, and a wide variety of indoor and outdoor events. 
+            </p>
+            <p className="text-slate-500 leading-relaxed">
+              Through every stage, event, and audience, I continue to bring energy, professionalism, and memorable experiences to every performance.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-8 h-px bg-tiffany-500" />
-              <p className="text-slate-400 text-xs tracking-widest uppercase">Born May 12, 1990 · Kandy, Sri Lanka</p>
+              <div className="w-8 h-px bg-[#8b3dff]" />
+              <p className="text-slate-400 text-xs tracking-widest uppercase">Senura Wageesha Dias, Sri Lanka</p>
             </div>
           </motion.div>
         </div>

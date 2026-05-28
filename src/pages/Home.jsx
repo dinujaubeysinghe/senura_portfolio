@@ -143,9 +143,9 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="relative z-10 py-24 border-y border-tiffany-500/10 section-alt">
+      <section className="relative z-10 py-24 border-y  section-alt">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-tiffany-500/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px">
             {stats.map(({ value, label }, i) => (
               <motion.div
                 key={label}
@@ -154,7 +154,7 @@ export default function Home() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="bg-light-50 p-8 text-center"
+                className="bg-white p-8 text-center"
               >
                 <p className="font-display text-5xl md:text-6xl tiffany-gradient mb-2">{value}</p>
                 <p className="text-slate-400 text-xs tracking-widest uppercase">{label}</p>
@@ -174,10 +174,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-4">The Artist</p>
+              <p className="text-[#7630d7] text-xs tracking-[0.4em] uppercase mb-4">The Compere</p>
               <h2 className="font-display text-5xl md:text-6xl text-slate-900 tracking-wider mb-6 leading-tight">
-                BLENDING<br />
-                <span className="tiffany-gradient">WORLDS</span>
+                VOICE OF <br />
+                <span className="tiffany-gradient">A NEW ERA</span>
               </h2>
               <p className="text-slate-500 leading-relaxed mb-8">
                 Born in the hills of Kandy, trained in traditional Kandyan dance, Yuki Navaratne brings
@@ -186,10 +186,10 @@ export default function Home() {
               </p>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-3 text-tiffany-500 hover:text-tiffany-600 text-sm font-medium tracking-widest uppercase transition-colors duration-300 group"
+                className="inline-flex items-center gap-3 text-[#8b3dff] hover:text-[#7630d7] text-sm font-medium tracking-widest uppercase transition-colors duration-300 group"
               >
                 Read Full Story
-                <span className="w-8 h-px bg-tiffany-500 group-hover:w-12 transition-all duration-300" />
+                <span className="w-8 h-px bg-[#8b3dff] group-hover:w-12 transition-all duration-300" />
               </Link>
             </motion.div>
 
@@ -201,7 +201,7 @@ export default function Home() {
               className="relative"
             >
               <div className="glass-dark rounded-2xl p-8 glow">
-                <p className="text-tiffany-500 text-xs tracking-widest uppercase mb-6">Latest Releases · 2025</p>
+                <p className="text-[#8b3dff] text-xs tracking-widest uppercase mb-6">Latest Releases · 2025</p>
                 {['18 Wannam', 'Aathin Mathin', 'Hamadama', 'Hayyo'].map((track, i) => (
                   <motion.div
                     key={track}
@@ -215,14 +215,14 @@ export default function Home() {
                       <span className="text-slate-300 text-xs font-mono w-4">{String(i + 1).padStart(2, '0')}</span>
                       <span className="text-slate-600 group-hover:text-slate-900 text-sm transition-colors">{track}</span>
                     </div>
-                    <FaPlay size={10} className="text-slate-300 group-hover:text-tiffany-500 transition-colors" />
+                    <FaPlay size={10} className="text-slate-300 group-hover:text-[#8b3dff] transition-colors" />
                   </motion.div>
                 ))}
                 <Link
-                  to="/music"
-                  className="mt-6 block text-center text-xs text-tiffany-500 hover:text-tiffany-600 tracking-widest uppercase transition-colors"
+                  to="/events"
+                  className="mt-6 block text-center text-xs text-[#8b3dff] hover:text-[#7630d7] tracking-widest uppercase transition-colors"
                 >
-                  View Full Discography →
+                  View all Events →
                 </Link>
               </div>
             </motion.div>
@@ -232,7 +232,7 @@ export default function Home() {
 
       {/* CTA Banner */}
       <section className="relative z-10 py-20 overflow-hidden section-alt">
-        <div className="absolute inset-0 bg-gradient-to-r from-tiffany-500/8 via-tiffany-400/4 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#8b3dff]/8 via-[#8b3dff]/4 to-transparent" />
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
