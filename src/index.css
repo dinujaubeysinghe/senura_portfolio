@@ -96,3 +96,39 @@ body {
 .nav-underline {
   background: var(--color-brand-primary);
 }
+
+/* Brand form styles */
+.brand-form-panel {
+  background: linear-gradient(180deg, rgba(139,61,255,0.04) 0%, rgba(240,236,254,0.03) 100%);
+  border: 1px solid rgba(139,61,255,0.08);
+  padding: 1.25rem;
+  border-radius: 14px;
+}
+.brand-form-inner {
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid rgba(139,61,255,0.06);
+}
+.brand-form-label {
+  color: rgba(118,48,215,0.9);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+}
+.brand-form-input {
+  background: #fff;
+  border: 1px solid rgba(118,48,215,0.06);
+  color: #2b2640;
+}
+.brand-form-cta {
+  background: linear-gradient(90deg, var(--color-brand-primary), var(--color-brand-hover));
+  color: white;
+}
+.brand-form-ghost {
+  background: transparent;
+  border: 1px solid rgba(118,48,215,0.08);
+  color: var(--color-brand-hover);
+}
+.brand-form-shadow {
+  box-shadow: 0 20px 60px rgba(139,61,255,0.06);
+}
