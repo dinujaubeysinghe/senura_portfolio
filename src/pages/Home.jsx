@@ -143,7 +143,9 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="relative z-10 py-24 border-y  section-alt">
+      <section 
+      className="relative z-10 py-24 border-y  section-alt"
+      style={{ backgroundColor: 'white' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px">
             {stats.map(({ value, label }, i) => (

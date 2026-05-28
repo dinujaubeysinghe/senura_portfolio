@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import aboutWage from '../assets/wageesha_abouts.png'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -96,27 +97,22 @@ export default function About() {
       </section>
 
       {/* Bio */}
-      <section className="py-20 border-t border-tiffany-500/10 section-alt">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <section
+          className="py-4 border-t border-[#eae4fe] section-alt"
+          style={{ backgroundColor: '#e0d8fb' }}
+        >
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative w-72 mx-auto">
-              <div className="aspect-square rounded-2xl overflow-hidden glass glow flex items-center justify-center border border-tiffany-500/15">
-                <div className="text-center">
-                  <p className="font-display text-8xl tiffany-gradient">WD</p>
-                  <p className="text-slate-400 text-xs tracking-widest mt-2 uppercase">Wageesha Diaz</p>
-                </div>
-              </div>
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                className="absolute -inset-3 rounded-2xl border border-tiffany-500/20 border-dashed"
-              />
-            </div>
+               <div className="relative mx-auto w-full md:w-auto">
+                 <div className="w-full h-screen md:h-screen overflow-hidden">
+                   <img src={aboutWage} alt="Wageesha Diaz" className="w-full h-full object-cover" />
+                 </div>
+               </div>
           </motion.div>
 
           <motion.div
@@ -127,33 +123,33 @@ export default function About() {
             className="space-y-6"
           >
             <div>
-              <p className="text-[#8b3dff] text-xs font-bold tracking-[0.4em] uppercase mb-3">Background</p>
+              <p className="text-[#8b3dff] text-xs font-bold tracking-[0.4em] uppercase my-5">Background</p>
               <h2 className="font-display text-4xl text-slate-900 tracking-wider mb-4">
                 BEHIND THE MIC<br />BEYOND THE CROWD
               </h2>
             </div>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-650 leading-relaxed text-md">
              Born in the coastal town of Bentota, my passion for communication and stage performance began during my school years. My journey started as a young announcer, confidently hosting school events and developing a strong connection with audiences through my voice and stage presence.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-650 leading-relaxed text-md">
              During my time at Kalutara Vidyalaya, I proudly served as the Debate Captain for four consecutive years, which helped me strengthen my leadership, confidence, and public speaking skills. I also worked as the Radio Director of the school media club, where I further explored my creativity and passion for broadcasting.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-650 leading-relaxed text-md">
               Driven by my love for media and professional announcing, I later completed my training at Athula Ransirilal's Lanka Television and Radio Academy (LTRA). Today, I am a TVEC-approved and registered announcer, actively working in wedding compering, cricket commentary, brand promotions, and a wide variety of indoor and outdoor events. 
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-slate-650 leading-relaxed text-md">
               Through every stage, event, and audience, I continue to bring energy, professionalism, and memorable experiences to every performance.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <div className="w-8 h-px bg-[#8b3dff]" />
-              <p className="text-slate-400 text-xs tracking-widest uppercase">Senura Wageesha Dias, Sri Lanka</p>
+              <div className="w-8 h-px bg-[#8b3dff] " />
+              <p className="text-slate-600 text-xs tracking-widest ">SENURA WAGEESHA DIAS, SRI LANKA</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Stats counter */}
-      <section className="py-20 border-t border-tiffany-500/10 bg-white">
+      <section className="py-20 border-t border-[#eae4fe] bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -179,7 +175,7 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 border-t border-tiffany-500/10 section-alt">
+      <section className="py-20 border-t border-[#eae4fe] section-alt">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,7 +214,7 @@ export default function About() {
       </section>
 
       {/* Teaching */}
-      <section className="py-20 border-t border-tiffany-500/10 bg-white">
+      <section className="py-20 border-t border-[#eae4fe] bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

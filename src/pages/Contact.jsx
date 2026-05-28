@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { FaInstagram, FaFacebook, FaYoutube, FaSpotify, FaPhone, FaEnvelope } from 'react-icons/fa'
 import { SiApplemusic } from 'react-icons/si'
 
@@ -15,16 +16,53 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+    if (error) setError('')
+  }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setSending(true)
-    setTimeout(() => {
+    setError('')
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
       setSending(false)
+      setError('Email form is not configured yet. Add your EmailJS keys in .env and try again.')
+      return
+    }
+
+    try {
+      const templateParams = {
+        to_email: 'diaz.wageesha@gmail.com',
+        from_name: form.name,
+        from_email: form.email,
+        reply_to: form.email,
+        subject: form.subject,
+        message: form.message,
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        { publicKey },
+      )
+
       setSent(true)
-    }, 1500)
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch (submitError) {
+      setError('Something went wrong while sending the message. Please try again.')
+      console.error('EmailJS submit failed:', submitError)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -81,7 +119,7 @@ export default function Contact() {
               <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6">Direct Contact</p>
               <div className="space-y-4">
                 <a
-                  href="mailto:yukissnet@gmail.com"
+                  href="mailto:diaz.wageesha@gmail.com"
                   className="flex items-center gap-4 glass rounded-xl p-4 hover:border-tiffany-500/30 transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-tiffany-500/10 flex items-center justify-center group-hover:bg-tiffany-500/20 transition-colors">
@@ -89,7 +127,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-slate-400 text-xs uppercase tracking-widest">Email</p>
-                    <p className="text-slate-600 group-hover:text-slate-900 text-sm transition-colors">yukissnet@gmail.com</p>
+                    <p className="text-slate-600 group-hover:text-slate-900 text-sm transition-colors">diaz.wageesha@gmail.com</p>
                   </div>
                 </a>
                 <a
@@ -156,6 +194,11 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5">
                 <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6">Send a Message</p>
+                {error ? (
+                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
+                    {error}
+                  </div>
+                ) : null}
                 <div className="grid md:grid-cols-2 gap-5">
                   {[
                     { name: 'name', label: 'Your Name', type: 'text', placeholder: 'John Doe' },

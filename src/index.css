@@ -5,6 +5,7 @@
 :root {
   --color-brand-primary: #8b3dff;
   --color-brand-hover: #7630d7;
+  --color-brand-light: #eae4fe;
 }
 
 * {
