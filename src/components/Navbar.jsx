@@ -6,7 +6,8 @@ import logo from '../assets/wageesha_logo.png'
 const links = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/music', label: 'Music' },
+  { to: '/events', label: 'Events' },
+  { to: '/voiceover', label: 'Voiceover' },
   { to: '/contact', label: 'Contact' },
 ]
 

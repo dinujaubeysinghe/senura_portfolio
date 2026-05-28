@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FaSpotify, FaPlay } from 'react-icons/fa'
+import { FaSpotify, FaPlay, FaEnvelope  } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
 import banner from '../assets/wageesha_backg.png'
 
@@ -73,15 +73,6 @@ export default function Home() {
           style={{ opacity: heroOpacity, y: heroY }}
           className="relative z-10 text-center px-6 max-w-5xl mx-auto"
         >
-          <motion.p
-            custom={0}
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6 font-medium"
-          >
-            Official Website
-          </motion.p>
 
           <div className="overflow-hidden mb-2"></div>
           <div className="overflow-hidden mb-8 mt-20">
@@ -128,8 +119,8 @@ export default function Home() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 btn-primary font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
-              <FaSpotify size={16} />
-              Contatct Me
+              <FaEnvelope />
+              Contact Me
             </a>
           </motion.div>
         </motion.div>
