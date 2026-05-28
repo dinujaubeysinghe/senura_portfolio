@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { FaInstagram, FaFacebook, FaYoutube, FaSpotify, FaPhone, FaEnvelope } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaInstagram, FaFacebook, FaWhatsapp, FaTiktok } from 'react-icons/fa'
 import { SiApplemusic } from 'react-icons/si'
 
 const socials = [
-  { icon: FaSpotify, href: 'https://open.spotify.com/artist/00ZpGGB5F7Ytw781Qsr1sR', label: 'Spotify', color: '#1DB954' },
-  { icon: SiApplemusic, href: 'https://music.apple.com/lk/artist/yuki-navaratne/1472878536', label: 'Apple Music', color: '#fc3c44' },
-  { icon: FaInstagram, href: 'https://www.instagram.com/yuki_beatz', label: 'Instagram', color: '#E1306C' },
-  { icon: FaFacebook, href: 'https://www.facebook.com/yukinavaratneofficial/', label: 'Facebook', color: '#1877F2' },
-  { icon: FaYoutube, href: 'https://www.youtube.com/user/Yukissnet', label: 'YouTube', color: '#FF0000' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/__sew__sh___?igsh=MTNkbmtxbXJkbTJwZQ%3D%3D&utm_source=qr', label: 'Instagram', color: '#E1306C' },
+  { icon: FaFacebook, href: 'https://www.facebook.com/share/1DoDxnTtTZ/?mibextid=wwXIfr', label: 'Facebook', color: '#1877F2' },
+  { icon: FaWhatsapp, href: 'https://wa.me/94702077889', label: 'WhatsApp', color: '#25D366' },
+  { icon: FaTiktok, href: 'https://www.tiktok.com/@voice_arts?_r=1&_t=ZS-96jKMzNPFx6', label: 'TikTok', color: '#000000' },
 ]
 
 export default function Contact() {
@@ -85,7 +84,7 @@ export default function Contact() {
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-            className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-[#8b3dff] font-bold text-xs tracking-[0.4em] uppercase mb-4"
           >
             Get In Touch
           </motion.p>
@@ -105,7 +104,12 @@ export default function Contact() {
       </section>
 
       {/* Main content */}
-      <section className="py-16 border-t border-tiffany-500/10 section-alt">
+      <section 
+      className="py-16 border-t border-tiffany-500/10 section-alt"
+      style={{
+        background: 'white',
+        
+      }}>
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-12">
           {/* Contact info */}
           <motion.div
@@ -116,7 +120,7 @@ export default function Contact() {
             className="md:col-span-2 space-y-8"
           >
             <div>
-              <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6">Direct Contact</p>
+              <p className="text-[#8b3dff] font-bold text-xs tracking-[0.4em] uppercase mb-6">Direct Contact</p>
               <div className="space-y-4">
                 <a
                   href="mailto:diaz.wageesha@gmail.com"
@@ -131,7 +135,7 @@ export default function Contact() {
                   </div>
                 </a>
                 <a
-                  href="tel:+94777779723"
+                  href="tel:+94702077889"
                   className="flex items-center gap-4 glass rounded-xl p-4 hover:border-tiffany-500/30 transition-all duration-300 group"
                 >
                   <div className="w-10 h-10 rounded-lg bg-tiffany-500/10 flex items-center justify-center group-hover:bg-tiffany-500/20 transition-colors">
@@ -139,14 +143,14 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-slate-400 text-xs uppercase tracking-widest">Phone</p>
-                    <p className="text-slate-600 group-hover:text-slate-900 text-sm transition-colors">+94 777 779 723</p>
+                    <p className="text-slate-600 group-hover:text-slate-900 text-sm transition-colors">+94 70 207 7889</p>
                   </div>
                 </a>
               </div>
             </div>
 
             <div>
-              <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6">Follow Along</p>
+              <p className="text-[#8b3dff] font-bold text-xs tracking-[0.4em] uppercase mb-6">Follow Along</p>
               <div className="space-y-3">
                 {socials.map(({ icon: Icon, href, label, color }) => (
                   <a
@@ -177,7 +181,8 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="glass rounded-2xl p-12 text-center h-full flex flex-col items-center justify-center gap-6"
+                className="glass rounded-2xl p-12 text-center h-full flex flex-col items-center justify-center gap-6 shadow-2xl"
+                style={{ boxShadow: '0 20px 50px rgba(139,61,255,0.08)' }}
               >
                 <div className="w-16 h-16 rounded-full bg-tiffany-500/15 flex items-center justify-center">
                   <span className="text-tiffany-500 text-2xl">✓</span>
@@ -192,7 +197,8 @@ export default function Contact() {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 space-y-5 shadow-2xl"
+                style={{ boxShadow: '0 20px 50px rgba(139,61,255,0.06)' }}>
                 <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-6">Send a Message</p>
                 {error ? (
                   <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">

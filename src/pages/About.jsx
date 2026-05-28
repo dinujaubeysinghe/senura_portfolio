@@ -65,7 +65,14 @@ export default function About() {
       className="pt-24"
     >
       {/* Header */}
-      <section className="py-20 text-center relative overflow-hidden bg-white">
+      <section
+        className="relative overflow-hidden bg-white h-screen flex items-end justify-center pb-20 text-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.55)), url(${aboutWage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+        }}
+      >
         <div
           className="absolute inset-0 opacity-40"
           style={{
@@ -88,7 +95,7 @@ export default function About() {
           </motion.h1>
           <motion.p
             variants={fadeUp} initial="hidden" animate="visible" custom={2}
-            className="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
+            className="text-slate-650 text-sm md:text-base max-w-2xl mx-auto leading-relaxed"
           >
             Patti Vidanalage Senura Wageesha Dias — professionally known as Wageesha Diaz.
             A Sri Lankan compere and announcer known for creating powerful audience connections through voice, presence, and performance.
@@ -99,22 +106,11 @@ export default function About() {
       {/* Bio */}
         <section
           className="py-4 border-t border-[#eae4fe] section-alt"
-          style={{ backgroundColor: '#e0d8fb' }}
-        >
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-               <div className="relative mx-auto w-full md:w-auto">
-                 <div className="w-full h-screen md:h-screen overflow-hidden">
-                   <img src={aboutWage} alt="Wageesha Diaz" className="w-full h-full object-cover" />
-                 </div>
-               </div>
-          </motion.div>
-
+          style={{
+      background: 'linear-gradient(180deg, rgba(224,217,251,0.95) 0%, rgba(240,236,254,0.98) 100%)',
+      color: '#2b2640'
+    }}>
+        <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -129,7 +125,7 @@ export default function About() {
               </h2>
             </div>
             <p className="text-slate-650 leading-relaxed text-md">
-             Born in the coastal town of Bentota, my passion for communication and stage performance began during my school years. My journey started as a young announcer, confidently hosting school events and developing a strong connection with audiences through my voice and stage presence.
+             Born in Bentota, my passion for communication and stage performance began during my school years. My journey started as a young announcer, confidently hosting school events and developing a strong connection with audiences through my voice and stage presence.
             </p>
             <p className="text-slate-650 leading-relaxed text-md">
              During my time at Kalutara Vidyalaya, I proudly served as the Debate Captain for four consecutive years, which helped me strengthen my leadership, confidence, and public speaking skills. I also worked as the Radio Director of the school media club, where I further explored my creativity and passion for broadcasting.

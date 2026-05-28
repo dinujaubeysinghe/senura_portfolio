@@ -113,15 +113,14 @@ export default function Home() {
             animate="visible"
             className="flex flex-wrap gap-4 justify-center"
           >
-            <a
-              href="https://open.spotify.com/artist/00ZpGGB5F7Ytw781Qsr1sR"
-              target="_blank"
+            <Link
+              to="/contact"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 btn-primary font-semibold text-sm px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="inline-flex items-center gap-2 btn-primary font-semibold text-xs px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <FaEnvelope />
               Contact Me
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -176,12 +175,12 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <p className="text-[#7630d7] text-xs tracking-[0.4em] uppercase mb-4">The Compere</p>
+              <p className="text-[#7630d7] font-bold text-xs tracking-[0.4em] uppercase mb-4">The Compere</p>
               <h2 className="font-display text-5xl md:text-6xl text-slate-900 tracking-wider mb-6 leading-tight">
                 VOICE OF <br />
                 <span className="tiffany-gradient">A NEW ERA</span>
               </h2>
-              <p className="text-slate-500 leading-relaxed mb-8">
+              <p className="text-slate-650 leading-relaxed mb-8">
                 Born in the hills of Kandy, trained in traditional Kandyan dance, Yuki Navaratne brings
                 a rare fusion of Sri Lankan heritage and modern electronic music. Hip-hop, R&B, trap,
                 and world sounds — all woven into one distinct voice.
@@ -233,7 +232,9 @@ export default function Home() {
       </section>
 
       {/* CTA Banner */}
-      <section className="relative z-10 py-20 overflow-hidden section-alt">
+      <section 
+      className="relative z-10 py-20 overflow-hidden section-alt"
+      style={{ backgroundColor: 'white' }}>
         <div className="absolute inset-0 bg-gradient-to-r from-[#8b3dff]/8 via-[#8b3dff]/4 to-transparent" />
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <motion.div
@@ -250,8 +251,10 @@ export default function Home() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 btn-outline font-medium text-sm px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 tracking-widest uppercase"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 btn-primary font-semibold text-xs px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
+              <FaEnvelope />
               Get in Touch
             </Link>
           </motion.div>
