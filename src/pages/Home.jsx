@@ -253,16 +253,17 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-display text-6xl md:text-8xl tracking-widest text-slate-900 mb-6">
-              <span className="inline-block">LET&apos;S</span>{' '}
-              <span className="relative inline-block align-middle h-[1em] w-[10ch] overflow-hidden text-left">
+            <p className="font-display text-6xl md:text-8xl tracking-widest text-slate-900 mb-6 leading-none">
+              <span className="block">LET&apos;S</span>
+              <span className="relative block h-[1em] w-full overflow-hidden text-center mt-2" style={{ perspective: 800 }}>
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={ctaText}
-                    initial={{ y: '100%', opacity: 0 }}
-                    animate={{ y: '0%', opacity: 1 }}
-                    exit={{ y: '-100%', opacity: 0 }}
-                    transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    initial={{ rotateX: 90, opacity: 0 }}
+                    animate={{ rotateX: 0, opacity: 1 }}
+                    exit={{ rotateX: -90, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ transformOrigin: 'bottom center', display: 'inline-block' }}
                     className="absolute inset-0 inline-block tiffany-gradient"
                   >
                     {ctaText.replace("LET'S ", '')}
@@ -270,7 +271,7 @@ export default function Home() {
                 </AnimatePresence>
               </span>
             </p>
-            <p className="text-slate-400 text-sm mb-8 tracking-widest">
+            <p className="text-slate-600 text-sm mb-8 tracking-widest">
               Bookings, collaborations, and enquiries
             </p>
             <Link
