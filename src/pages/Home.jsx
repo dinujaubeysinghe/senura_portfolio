@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSpotify, FaPlay, FaEnvelope  } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
@@ -26,6 +26,15 @@ export default function Home() {
   const { scrollYProgress } = useScroll({ target: containerRef })
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -60])
+  const [ctaText, setCtaText] = useState("LET'S CONNECT")
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCtaText((current) => (current === "LET'S CONNECT" ? "LET'S CELEBRATE" : "LET'S CONNECT"))
+    }, 3000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <motion.div
@@ -181,9 +190,10 @@ export default function Home() {
                 <span className="tiffany-gradient">A NEW ERA</span>
               </h2>
               <p className="text-slate-650 leading-relaxed mb-8">
-                Born in the hills of Kandy, trained in traditional Kandyan dance, Yuki Navaratne brings
-                a rare fusion of Sri Lankan heritage and modern electronic music. Hip-hop, R&B, trap,
-                and world sounds — all woven into one distinct voice.
+                Step into a New Era of Sinhala Announcing!
+              </p>
+              <p className="text-slate-650 leading-relaxed mb-8">
+                Bringing you unmatched energy, charisma, and professionalism, Wageesha Diaz is here to transform your special moments into unforgettable memories. Whether it’s a wedding, corporate event, party, or celebration,  the voice that elevates the atmosphere and connects with the crowd like no other. With a fresh and dynamic approach to emceeing, Wageesha delivers not just announcements, but pure entertainment.
               </p>
               <Link
                 to="/about"
@@ -202,8 +212,8 @@ export default function Home() {
               className="relative"
             >
               <div className="glass-dark rounded-2xl p-8 glow">
-                <p className="text-[#8b3dff] text-xs tracking-widest uppercase mb-6">Latest Releases · 2025</p>
-                {['18 Wannam', 'Aathin Mathin', 'Hamadama', 'Hayyo'].map((track, i) => (
+                <p className="text-[#8b3dff] text-xs tracking-widest uppercase mb-6">Top Categories</p>
+                {['Wedding Compere', 'Outdoor Event', 'Indoor Event', 'Commentary'].map((track, i) => (
                   <motion.div
                     key={track}
                     initial={{ opacity: 0, x: 20 }}
@@ -244,7 +254,21 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <p className="font-display text-6xl md:text-8xl tracking-widest text-slate-900 mb-6">
-              LET'S <span className="tiffany-gradient">CONNECT</span>
+              <span className="inline-block">LET&apos;S</span>{' '}
+              <span className="relative inline-block align-middle h-[1em] w-[10ch] overflow-hidden text-left">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={ctaText}
+                    initial={{ y: '100%', opacity: 0 }}
+                    animate={{ y: '0%', opacity: 1 }}
+                    exit={{ y: '-100%', opacity: 0 }}
+                    transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="absolute inset-0 inline-block tiffany-gradient"
+                  >
+                    {ctaText.replace("LET'S ", '')}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
             </p>
             <p className="text-slate-400 text-sm mb-8 tracking-widest">
               Bookings, collaborations, and enquiries
