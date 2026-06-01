@@ -22,8 +22,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10 relative z-10">
         <div className="flex flex-col md:flex-row items-stretch gap-8">
           {/* Left: Large title */}
-          <div className="flex-1 flex items-center">
-            <h2 className="font-display text-[#7a3cff] leading-tight" style={{ fontSize: 'clamp(2.8rem,7.5vw,5.8rem)', margin: 0, fontWeight: 700, letterSpacing: '0.06em', textShadow: '0 8px 24px rgba(122,60,255,0.12)' }}>
+          <div className="flex-1 flex items-center justify-center">
+            <h2 className="font-display text-[#7a3cff] leading-tight" style={{ fontSize: 'clamp(3rem,8vw,7rem)', margin: 0, fontWeight: 800, letterSpacing: '0.04em', textShadow: '0 10px 28px rgba(122,60,255,0.14)', display: 'inline-block', transform: 'scaleX(1.08)' }}>
               Wageesha Diaz
             </h2>
           </div>
@@ -50,7 +50,10 @@ export default function Footer() {
               ))}
             </div>
             <div className="text-xs text-slate-600/90 text-center w-full">
-              © {new Date().getFullYear()} Wageesha Diaz. Developed by 
+              © {new Date().getFullYear()} Wageesha Diaz.All rights reserved. 
+            </div>
+            <div className="text-[10px] text-slate-600/90 text-center w-full">
+              Made by
               <span > </span> 
               <span className="font-semibold underline hover:text-[#7a3cff] hover:scale-105 transition-transform"><a href="https://wa.me/94766154657" target="_blank" rel="noopener noreferrer">Dinuja</a></span>
             </div>

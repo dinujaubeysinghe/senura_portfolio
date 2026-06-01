@@ -90,13 +90,13 @@ function TimelineItem({ i, tag, title, desc, detail }) {
         className={`${isLeft ? 'col-start-1 text-right' : 'col-start-3 text-left'} cursor-pointer`}
         onClick={() => setOpen(o => !o)}
       >
-        <motion.div
+          <motion.div
           style={{
             x,
             opacity,
             scale,
-            border: open ? '1.5px solid rgba(139,61,255,0.4)' : '1px solid #eae4fe',
-            boxShadow: open ? '0 8px 32px rgba(139,61,255,0.12)' : '0 2px 12px rgba(139,61,255,0.04)',
+            border: open ? '2px solid rgba(122,60,255,0.6)' : '1.5px solid rgba(122,60,255,0.35)',
+            boxShadow: open ? '0 8px 32px rgba(122,60,255,0.12)' : '0 2px 12px rgba(122,60,255,0.04)',
             transition: 'border 0.3s, box-shadow 0.3s',
           }}
           whileHover={{ scale: 1.025, y: -2 }}
@@ -114,19 +114,19 @@ function TimelineItem({ i, tag, title, desc, detail }) {
           <span
             className="inline-block text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
             style={{
-              border: '0.5px solid rgba(139,61,255,0.3)',
-              color: '#8b3dff',
-              background: 'rgba(139,61,255,0.06)',
+              border: '0.5px solid rgba(122,60,255,0.3)',
+              color: '#7a3cff',
+              background: 'rgba(122,60,255,0.06)',
             }}
           >
             {tag}
           </span>
 
           {/* Title */}
-          <h3 className="text-slate-800 font-semibold mb-2 text-sm tracking-wide">{title}</h3>
+          <h3 className="text-slate-800 font-bold mb-2 text-sm tracking-wide">{title}</h3>
 
           {/* Description */}
-          <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+          <p className="text-slate-600 text-sm leading-relaxed">{desc}</p>
 
           {/* Expandable detail */}
           <motion.div
@@ -330,32 +330,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Stats Counter ────────────────────────────────────────────────────── */}
-      <section className="py-20 border-t border-[#eae4fe] bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: '9.3', suffix: 'M', label: 'Streams · 2024' },
-              { value: '398', suffix: 'K', label: 'Monthly Listeners' },
-              { value: '161', suffix: '', label: 'Countries Reached' },
-              { value: '20', suffix: '+', label: 'Releases' },
-            ].map(({ value, suffix, label }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="glass-dark rounded-xl p-6"
-              >
-                <CountUp target={value} suffix={suffix} />
-                <p className="text-slate-400 text-xs tracking-widest uppercase mt-2">{label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Timeline ─────────────────────────────────────────────────────────── */}
       <section
         className="py-20 border-t border-[#eae4fe] relative overflow-hidden"
@@ -410,8 +384,8 @@ export default function About() {
           </motion.div>
 
           {/* Spine + items */}
-          <div className="relative">
-            <TimelineSpine />
+          <div className="relative ">
+            <TimelineSpine  />
             {timelineData.map((item, i) => (
               <TimelineItem key={item.title} i={i} {...item} />
             ))}
@@ -419,7 +393,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Teaching / Pearlbay ─────────────────────────────────────────────── */}
+      {/* ── Education ──────────────────────────────────────────────── */}
       <section className="py-20 border-t border-[#eae4fe] bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -428,20 +402,18 @@ export default function About() {
             viewport={{ once: true }}
             className="glass-dark rounded-2xl p-10 md:p-14 text-center glow"
           >
-            <p className="text-tiffany-500 text-xs tracking-[0.4em] uppercase mb-4">Education</p>
+            <p className="text-[#8b3dff] font-bold text-xs tracking-[0.4em] uppercase mb-4">Education</p>
             <h2 className="font-display text-5xl text-slate-900 tracking-wider mb-6">
-              PEARLBAY <span className="tiffany-gradient">INSTITUTE</span>
+              LANKA TELEVISION <span className="tiffany-gradient">RADIO ACADEMY</span>
             </h2>
             <p className="text-slate-500 max-w-2xl mx-auto leading-relaxed mb-8">
-              As a Visiting Music Production Lecturer at Sri Lanka's largest audio engineering institution,
-              Wageesha mentors students in electronic music production — from FL Studio fundamentals
-              through advanced mixing and sound design techniques.
+             Completed professional announcing and broadcasting training at Lanka Television and Radio Academy (LTRA). Certified as a TVEC-approved and registered announcer, meeting Sri Lanka's national standard for professional broadcasting and live event compering.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              {['FL Studio', 'Electronic Production', 'Sound Design', 'Music Theory', 'Mixing & Mastering'].map((tag) => (
+              {['Announcing', 'Live Compering', 'Voiceover', 'Media Production', 'TVEC Certified'].map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs px-4 py-2 rounded-full border border-tiffany-500/20 text-tiffany-600 tracking-widest uppercase"
+                  className="text-xs px-4 py-2 rounded-full border border-[#8b3dff] text-[#7a3cff] tracking-widest uppercase"
                 >
                   {tag}
                 </span>
