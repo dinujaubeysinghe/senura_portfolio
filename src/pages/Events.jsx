@@ -9,6 +9,7 @@ import event3 from '../assets/events/wevent3.jpeg'
 import event4 from '../assets/events/wevent4.jpeg'
 import event5 from '../assets/events/wevent5.jpeg'
 import event6 from '../assets/events/wevent6.jpeg'
+import event7 from '../assets/events/wevent7.jpeg'
 
 const sampleEvents = [
   { title: 'Cricket Commentary',  place: 'Galle International Cricket Stadium',   img: event1, url: 'https://youtube.com/shorts/Iz-BwRwS3fw' },
@@ -17,6 +18,7 @@ const sampleEvents = [
   { title: 'Awurudu Uthsawa',    place: 'Danketiya Public Ground', img: event4, url: 'https://youtube.com/shorts/UVM5Rx5P8No?feature=share' },
   { title: 'Indoor Function',          place: 'French Villa Katukurunda',      img: event5, url: 'https://youtube.com/shorts/nhgDu6ZRgBA?feature=share' },
   { title: 'Wedding Compere',       place: 'Sea Gate Katukurunda',       img: event6, url: 'https://youtu.be/309OCmJV3_M' },
+  { title: 'Outdoor Events',       place: 'Lotus Tower',       img: event7, url: 'https://youtu.be/w9yLiLnYMNM' },
 ]
 
 function EventCard({ ev }) {

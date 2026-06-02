@@ -55,7 +55,7 @@ export default function Footer() {
             <div className="text-[10px] text-slate-600/90 text-center w-full">
               Made by
               <span > </span> 
-              <span className="font-semibold underline hover:text-[#7a3cff] hover:scale-105 transition-transform"><a href="https://wa.me/94766154657" target="_blank" rel="noopener noreferrer">Dinuja</a></span>
+              <span className="font-semibold underline hover:text-[#7a3cff] hover:scale-105 transition-transform"><a href="https://dinuja.netlify.app/" target="_blank" rel="noopener noreferrer">Dinuja</a></span>
             </div>
           </div>
         </div>
