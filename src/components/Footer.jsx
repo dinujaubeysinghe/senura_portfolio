@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
 
           {/* Right: stacked info */}
-          <div className="w-full md:w-72 flex flex-col items-center justify-center gap-4">
+          <div className="w-full md:w-72 flex flex-col items-center justify-center">
             <div className="flex items-center gap-3 justify-center w-full">
               {socials.map(({ icon: Icon, href, label }) => (
                 <a
@@ -49,13 +49,13 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <div className="text-xs text-slate-600/90 text-center w-full">
+            <div className="text-xs text-slate-600/90 text-center w-full mt-4">
               © {new Date().getFullYear()} Wageesha Diaz.All rights reserved. 
             </div>
             <div className="text-[10px] text-slate-600/90 text-center w-full">
               Made by
               <span > </span> 
-              <span className="font-semibold underline hover:text-[#7a3cff] hover:scale-105 transition-transform"><a href="https://dinuja.netlify.app/" target="_blank" rel="noopener noreferrer">Dinuja</a></span>
+              <span className="font-semibold underline hover:text-[#7a3cff] hover:scale-105 transition-transform"><a href="https://www.dinuja.online/" target="_blank" rel="noopener noreferrer">Dinuja Ubeysinghe</a></span>
             </div>
           </div>
         </div>

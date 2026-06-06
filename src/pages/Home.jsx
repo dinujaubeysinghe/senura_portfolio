@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { FaPlay, FaEnvelope, FaMicrophone, FaRing, FaBroadcastTower, FaTrophy } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
@@ -19,13 +19,13 @@ const fadeUp = {
 }
 
 // ─── CTA words ────────────────────────────────────────────────────────────────
-const ctaWords = ['CONNECT', 'CONVERSE','CELEBRATE']
+const ctaWords = ['CONNECT', 'CONVERSE', 'CELEBRATE']
 
 // ─── Experience data ──────────────────────────────────────────────────────────
 const experiences = [
   {
     id: '01',
-    image: event1,   // replace with your actual image path
+    image: event1,
     title: 'Outdoor Event',
     videoUrl: 'https://youtube.com/shorts/HbPShN3djAA',
   },
@@ -121,12 +121,31 @@ export default function Home() {
   const [ctaIndex, setCtaIndex] = useState(0)
   const timerRef = useRef(null)
 
-  const startTimer = () => {
+  // ── Fixed: useCallback + visibilitychange handler ──────────────────────────
+  const startTimer = useCallback(() => {
     clearInterval(timerRef.current)
     timerRef.current = setInterval(() => setCtaIndex(i => (i + 1) % ctaWords.length), 3000)
-  }
+  }, [])
 
-  useEffect(() => { startTimer(); return () => clearInterval(timerRef.current) }, [])
+  useEffect(() => {
+    startTimer()
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      } else {
+        startTimer()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
+
+    return () => {
+      clearInterval(timerRef.current)
+      document.removeEventListener('visibilitychange', handleVisibility)
+    }
+  }, [startTimer])
 
   // Scroll-driven heading for Experience section
   const expRef = useRef(null)
@@ -221,66 +240,60 @@ export default function Home() {
 
       {/* ══ EXPERIENCE SECTION ══════════════════════════════════════════════ */}
       <section className="py-24 bg-white border-t border-[#eae4fe]">
-  <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
 
-    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-      <h2 className="font-display text-5xl text-slate-900 tracking-wider">
-        THE <span className="tiffany-gradient">EXPERIENCE</span>
-      </h2>
-    </motion.div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+            <h2 className="font-display text-5xl text-slate-900 tracking-wider">
+              THE <span className="tiffany-gradient">EXPERIENCE</span>
+            </h2>
+          </motion.div>
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {experiences.map((item, i) => (
-        <motion.a
-          key={item.id}
-          href={item.videoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.08, duration: 0.5 }}
-          whileHover={{ scale: 1.03, y: -4 }}
-          className="relative rounded-2xl overflow-hidden group cursor-pointer block"
-          style={{ aspectRatio: '9/16' }}
-        >
-          {/* Photo */}
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 transition-opacity duration-300"
-            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)', opacity: 0.7 }}
-          />
-
-          {/* Play button */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-12 h-12 rounded-full flex items-center justify-center"
-              style={{ background: 'rgba(139,61,255,0.85)', backdropFilter: 'blur(4px)' }}>
-              <FaPlay size={14} className="text-white ml-1" />
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {experiences.map((item, i) => (
+              <motion.a
+                key={item.id}
+                href={item.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                whileHover={{ scale: 1.03, y: -4 }}
+                className="relative rounded-2xl overflow-hidden group cursor-pointer block"
+                style={{ aspectRatio: '9/16' }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%)', opacity: 0.7 }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ background: 'rgba(139,61,255,0.85)', backdropFilter: 'blur(4px)' }}>
+                    <FaPlay size={14} className="text-white ml-1" />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <p className="text-white text-xs font-semibold tracking-widest uppercase">{item.title}</p>
+                </div>
+              </motion.a>
+            ))}
           </div>
 
-          {/* Title */}
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <p className="text-white text-xs font-semibold tracking-widest uppercase">{item.title}</p>
+          <div className="mt-12">
+            <Link to="/events" className="inline-flex items-center gap-3 text-[#8b3dff] hover:text-[#7630d7] text-sm font-medium tracking-widest uppercase transition-colors duration-300 group">
+              View All
+              <span className="w-8 h-px bg-[#8b3dff] group-hover:w-12 transition-all duration-300" />
+            </Link>
           </div>
-        </motion.a>
-      ))}
-    </div>
-    <div className=" mt-12">
-       <Link to="/events" className="inline-flex items-center gap-3 text-[#8b3dff] hover:text-[#7630d7] text-sm font-medium tracking-widest uppercase transition-colors duration-300 group">
-                View All
-                <span className="w-8 h-px bg-[#8b3dff] group-hover:w-12 transition-all duration-300" />
-              </Link>
-    </div>
 
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* ── CTA Banner ────────────────────────────────────────────────────── */}
       <section className="relative z-10 py-16 overflow-hidden" style={{ backgroundColor: 'white' }}>
